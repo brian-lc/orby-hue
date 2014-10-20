@@ -1,0 +1,14 @@
+{
+  "name": "orby-hue",
+  "version": "1.0.0",
+  "description": "A simple app to control a color orb via the web",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian Chamberlain",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.9.8"
+  }
+}
