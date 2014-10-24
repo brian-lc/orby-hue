@@ -6,7 +6,11 @@
   "private": true,
   "author": "Brian Chamberlain",
   "dependencies": {
-    "express": "^4.9.8"
+    "express": "^4.9.8",
+    "body-parser": "1.0.x",
+    "firebase": "1.0.x",
+    "request": "2.46.x",
+    "jade": "1.7.x"
   },
   "engines": {
     "node": "0.10.x"
