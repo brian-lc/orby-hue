@@ -24,16 +24,16 @@ var sparkCoreURL = "https://api.spark.io/v1/devices/"
 app.route('/')
 .get(function (req, res, next){
   console.log('Rendered color form');
-  res.render('index', { title: 'Hey', message: 'Hello there!'});
+  res.render('index', { title: 'Orb Orb Orb', message: 'Hello there!'});
 })
 .post(function (req, res, next){
-  var r = req.param('rVal');
-  var g = req.param('gVal');
-  var b = req.param('bVal');
+  var r = String( "000" + req.param('rVal')).slice(-3);
+  var g = String( "000" + req.param('gVal')).slice(-3);
+  var b = String( "000" + req.param('bVal')).slice(-3);
   var rgbStr = r + g + b;
   console.log('Sending color ', rgbStr);
   request.post(sparkCoreURL + coreId + "/color").form({access_token:accessToken, params: rgbStr});
-  res.render('index', { title: 'Hey', message: 'Color '+ r + ':' + g + ':' + b + ' sent!'});
+  res.render('index', { title: 'Boom!', message: 'Color '+ r + ':' + g + ':' + b + ' sent!'});
 
 });
 

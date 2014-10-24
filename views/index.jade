@@ -1,10 +1,20 @@
 html
   head
     title!= title
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet",href="//code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css")
+    script(src="//code.jquery.com/jquery-1.10.2.min.js")
+    script(src="//code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js")
   body
-    h1!= message
-    form(action='/', method='POST')
-      input(type='text', name='rVal', value='000')
-      input(type='text', name='gVal', value='000')
-      input(type='text', name='bVal', value='000')
-      input(type='submit') 
+    div(data-role="header")
+      h1!= message
+    div(role="main").ui-content
+      form(action='/', method='POST')
+        label(for='rVal') Red
+        input(type='range', name='rVal', value='0' min='0' max='254' id='rVal')
+        label(for='gVal') Green
+        input(type='range', name='gVal', value='0' min='0' max='254' id='gVal')
+        label(for='bVal') Blue
+        input(type='range', name='bVal', value='0' min='0' max='254' id='bVal')
+        input(type='submit' value='Set Orb Color')
