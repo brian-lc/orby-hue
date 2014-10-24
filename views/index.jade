@@ -1,0 +1,10 @@
+html
+  head
+    title!= title
+  body
+    h1!= message
+    form(action='/', method='POST')
+      input(type='text', name='rVal', value='000')
+      input(type='text', name='gVal', value='000')
+      input(type='text', name='bVal', value='000')
+      input(type='submit') 
