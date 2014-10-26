@@ -7,7 +7,11 @@ html
     script(src="//code.jquery.com/jquery-1.10.2.min.js")
     script(src="//code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js")
     script(type='text/javascript').
-      $( document ).ready(function() {
+      $(document).on("pageshow","#orbyColor", function (){
+        $('#rVal').bind('change', setBgColor);
+        $('#gVal').bind('change', setBgColor);
+        $('#bVal').bind('change', setBgColor);
+        
         function setBgColor(){
           var rVal = $('#rVal').val();
           var gVal = $('#gVal').val();
@@ -15,21 +19,22 @@ html
           var bgColor = "rgb(" + rVal + "," + gVal + "," + bVal + ")"; 
           $('#colorPreview').css('background', bgColor);
         };
-        $('#rVal').change(setBgColor);
-        $('#gVal').change(setBgColor);
-        $('#bVal').change(setBgColor);
       });
   body
-    div(data-role="header")
-      h1!= message
-    div(role="main").ui-content
-      div(id='colorPreview' style='float:left;width:100px;height:100px;margin:30px 10px;border:1px solid #333;')
-      div(style='margin-left:140px;')
-        form(action='/', method='POST')
-          label(for='rVal') Red
-          input(type='range', name='rVal', value='0' min='0' max='254' id='rVal')
-          label(for='gVal') Green
-          input(type='range', name='gVal', value='0' min='0' max='254' id='gVal')
-          label(for='bVal') Blue
-          input(type='range', name='bVal', value='0' min='0' max='254' id='bVal')
-          input(type='submit' value='Set Orb Color' id='setButton')
+    #orbyColor(data-role='page')
+      div(data-role='header')
+        h1!= message
+      div(role='main').ui-content
+        div(id='colorPreview' style='float:left;width:100px;height:100px;margin:30px 10px;border:1px solid #333;')
+        div(style='margin-left:140px;')
+          form(action='/', method='POST', data-ajax='false')
+            #rVal-div
+              label(for='rVal') Red
+              input(type='range', name='rVal', value='0' min='0' max='254' id='rVal' data-highlight='true')
+            #gVal-div
+              label(for='gVal') Green
+              input(type='range', name='gVal', value='0' min='0' max='254' id='gVal' data-highlight='true')
+            #bVal-div
+              label(for='bVal') Blue
+              input(type='range', name='bVal', value='0' min='0' max='254' id='bVal' data-highlight='true')
+            input(type='submit' value='Set Orb Color' id='setButton' data-theme='b')
